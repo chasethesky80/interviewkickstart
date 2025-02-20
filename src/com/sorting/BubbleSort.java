@@ -9,6 +9,11 @@ public class BubbleSort {
         System.out.println("SSORT ELEMENTS WITH BUBBLE SORT ALTERNATIVE "+ performBubbleSort(Arrays.asList(3, 8, 8, 2, -1, 5, 5, -3)));
     }
 
+    /**
+     * TIME COMPLEXITY IS O((N-1)*N/2) WHICH IS O(N^2) AND SC = O(1)
+     * @param input
+     * @return
+     */
     private static List<Integer> performBubbleSort(final List<Integer> input) {
         for (int i = 0; i < input.size(); i++) {
             for (int j = input.size() - 1; j > i; j--) {

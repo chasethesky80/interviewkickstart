@@ -10,6 +10,11 @@ public class SelectionSort {
         System.out.println("SSORT ELEMENTS WITH SELECTION SORT ALTERNATIVE "+ performSelectionSort(Arrays.asList(3, 8, 8, 2, -1, 5, 5, -3)));
     }
 
+    /**
+     * TIME COMPLEXITY IS O((N-1)*N/2) WHICH IS O(N^2) AND SC = O(1)
+     * @param input
+     * @return
+     */
     private static List<Integer> performSelectionSort(final List<Integer> input) {
         for (int i = 0; i < input.size(); i++) {
             int currentMin = input.get(i);
