@@ -1,0 +1,41 @@
+1) For any odd number A then, A & 1 = 1, in other words, if (A & 1 = 1, then A is odd)
+2) For any even number A then, A & 1 = 0, if (A & 1 = 0, then A is even)
+3) For any binary number, the Most Significant Bit (MSB) is always negative
+4) For any binary number of N bits, the range of number is from -2^(n-1) to 2^N-1 - 1
+
+*********************** Bitwise operators *******************
+1) a & 0 = a
+2) a & a = a
+3) a | 0 = a
+4) a | a = a
+5) a ^ 0 = a
+6) a ^ a = 0
+7) a ^ b = b ^ a
+7) a & b = b & a
+8) a | b = b | a
+9) a & b & c = b & a & c = b & c & a , so on and so forth (distributive property)
+10) a | b | c = b | a | c = c | a | b, so on and so forth (distributive property)
+11) a ^ b ^ c = b ^ c ^ a = a ^ c ^ b, so on and so forth (distributive property)
+12 a ^ b = (a & b) ^ (a | b)
+
+II) Left shift operator:
+
+1) If the number a is left shifted N times then the result = a * 2^N (till no overflow happens in the sense that the number after the overflow does
+not fall outside the range of the data type),
+2) For the same reason:- 2^N = 1 * (2^N) = 1 << N, in other words:- 2^N = 1 << N -> TC = O(1) and SC = O(1)
+A) For byte: the result after left shift operation should lie in range of -2^7 to 2^7 - 1
+B) For short: the result after left shift operation should lie in range of -2^15 to 2^15 - 1
+C) For int: the result after left shift operation should lie in range of -2^31 to 2^31 - 1
+D) For long: the result after left shift operation should lie in range of -2^63 to 2^63 - 1
+
+III) Right shift operator
+
+For a number a, the value of a / 2^N = a >> N (right shift operator) and there is no concept of overflow in this case
+
+IV) Converting a char that represents a binary to an integer and vice-versa
+1) To convert a character that represents a binary to an int, do -> char - '0'. For Eg, convert '1' to 1 -> '1' - '0' and vice-versa,
+to convert an int that represents a binary to its equivalent character, do -> char + '0', for example to convert 1 to '1' -> 1 + '0'
+
+V) Special property on & operator:
+
+If N is a power of 2, then N & (N-1) = 0 (Eg: If N is 2, 4, 8, 16 etc)

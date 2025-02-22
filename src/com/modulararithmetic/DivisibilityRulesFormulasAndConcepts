@@ -1,0 +1,9 @@
+1) Divisibility rule for 3: A number is divisible by 3 if sum of all of its digits is also divisible by 3
+or in other words N % 3 = Sum of all the digits of the number % 3 for the divisibility rule of 3
+Eg: 4563 % 3 = (4000 + 500 + 60 + 3) % 3 = (4 * 10^3 + 5 * 10^2 + 6 * 10 + 3) % 3
+ = ((4 % 3 * 10^3 % 3) % 3 + (5 % 3 * 10^2 % 3) % 3 + (6 % 3 * 10 % 3) % 3 + 3 % 3) % 3
+ = ((4 % 3) % 3 + (5 % 3) % 3 + (6 % 3) % 3 + 3 % 3) % 3
+ = (4 % 3 + 5 % 3 + 6 % 3 + 3 % 3) --> Since (a % b) % b = a % b so eg: (4 % 3) % 3 = 4 % 3 etc
+ = (4 + 5 + 6 + 3) % 3 -- > Using modulus additive rule in reverse direction. i.e (a % p + b % p + c % p + d % p) = (a + b + c + d) % p
+
+2) Divisibility rule for 4: The number formed by the last 2 digits of the original number should be divisible by 4
