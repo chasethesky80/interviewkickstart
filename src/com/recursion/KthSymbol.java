@@ -27,6 +27,12 @@ public class KthSymbol {
         System.out.println("FIND THE SYMBOL AT THE NTH ROW AND KTH INDEX FOR THE ABOVE PROBLEM USING RECURSION "+ kthGrammarUsingRecursion(3, 3));
     }
 
+    /**
+     * TC = O(2^N) and SC=O(2^N) since Nth row contains 2^N elements
+     * @param N
+     * @param K
+     * @return
+     */
     private static int kthGrammarBruteForce(int N, int K) {
         final List<List<Integer>> result = ArrayUtils.generateKthSymbolSequence(N);
         return result.get(N-1).get(K);
