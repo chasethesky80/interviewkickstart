@@ -135,4 +135,25 @@ public class ArrayUtils {
         }
         return maximums;
     }
+
+    public static List<List<Integer>> generateKthSymbolSequence(int N) {
+        final List<Integer> firstList = List.of(0);
+        final List<List<Integer>> result = new ArrayList<>();
+        result.add(firstList);
+        for (int i = 1; i < N; i++) {
+            final List<Integer> previous = result.get(i-1);
+            final List<Integer> current = new ArrayList<>();
+            for (Integer element: previous) {
+                if (element == 0) {
+                    current.add(0);
+                    current.add(1);
+                } else {
+                    current.add(1);
+                    current.add(0);
+                }
+            }
+            result.add(current);
+        }
+        return result;
+    }
 }
