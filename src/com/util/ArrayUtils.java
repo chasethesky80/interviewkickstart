@@ -106,16 +106,16 @@ public class ArrayUtils {
      * @return
      */
     public static List<Integer> constructLeftMaxArray(final List<Integer> input) {
-        final List<Integer> maximums = new ArrayList<>();
-        maximums.add(0);
-        Integer currentMaximum = input.get(0);
+        final List<Integer> leftMaxArray = new ArrayList<>();
+        leftMaxArray.add(input.get(0));
         for (int i = 1; i < input.size(); i++) {
-            if (input.get(i).compareTo(currentMaximum) > 0) {
-                currentMaximum = input.get(i);
+            if (input.get(i).compareTo(input.get(i-1)) > 0) {
+                leftMaxArray.add(input.get(i));
+            } else {
+                leftMaxArray.add(input.get(i-1));
             }
-            maximums.add(currentMaximum);
         }
-        return maximums;
+        return leftMaxArray;
     }
 
     /**
@@ -124,16 +124,16 @@ public class ArrayUtils {
      * @return
      */
     public static List<Integer> constructRightMaxArray(final List<Integer> input) {
-        final List<Integer> maximums = new ArrayList<>(Collections.nCopies(input.size(), 0));
-        maximums.set(input.size() - 1, 0);
-        Integer currentMaximum = input.get(input.size() - 1);
-        for (int i = input.size() - 2; i >= 0; i--) {
-            if (input.get(i).compareTo(currentMaximum) > 0) {
-                currentMaximum = input.get(i);
+        final List<Integer> rightMaxArray = new ArrayList<>();
+        rightMaxArray.add(input.size() - 1);
+        for (int j = input.size() - 2; j >= 0 ; j--) {
+            if (input.get(j).compareTo(input.get(j+1)) > 0) {
+                rightMaxArray.add(input.get(j));
+            } else {
+                rightMaxArray.add(input.get(j+1));
             }
-            maximums.set(i, currentMaximum);
         }
-        return maximums;
+        return rightMaxArray;
     }
 
     public static List<List<Integer>> generateKthSymbolSequence(int N) {

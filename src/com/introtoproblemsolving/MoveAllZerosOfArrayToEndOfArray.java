@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class MoveAllZerosOfArrayToEndOfArray {
 
    public static void main(String[] args) {
-       System.out.println("MOVE ZROS TO END "+ Arrays.toString(moveZeros(new int[]{1, 3, 0, 0})));
+       System.out.println("MOVE ZROS TO END "+ Arrays.toString(moveZeros(new int[]{1, 3, 0, 0, 5, 6, 7})));
    }
 
     private static int[] moveZeros(int[] arr) {

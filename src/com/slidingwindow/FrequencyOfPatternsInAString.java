@@ -1,0 +1,8 @@
+package com.slidingwindow;
+
+/**
+ * GIVEN A STRING AND A PATTERN COUNT THE NUMBER OF TIMES THE PATTERN OR ANY OF ITS ANAGRAMS APPEARS AS A SUBSTRING
+ * IN THE STRING
+ */
+public class FrequencyOfPatternsInAString {
+}
