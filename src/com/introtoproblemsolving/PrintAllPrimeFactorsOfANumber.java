@@ -17,7 +17,7 @@ public class PrintAllPrimeFactorsOfANumber {
             primeFactors.add(i);
             N = N / i;
         }
-        for (int j = 3; j <= N; j = j + 2) {
+        for (int j = 3; j*j <= N; j = j + 2) {
             while (N % j == 0) {
                 primeFactors.add(j);
                 N = N / j;
