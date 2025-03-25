@@ -2,7 +2,11 @@ package com.introtoproblemsolving;
 
 public class NumberOfTrailingZerosInFactorial {
 
-    private int numberOfTrailingZeros(int num) {
+    public static void main(String[] args) {
+        System.out.println("FIND NUMBER OF TRAILING ZEROS IN FACTORIAL OF N "+ numberOfTrailingZeros(20));
+        System.out.println("FIND NUMBER OF TRAILING ZEROS IN FACTORIAL OF N "+ numberOfTrailingZeros(25));
+    }
+    private static int numberOfTrailingZeros(int num) {
         int cnt2= 0;
         int cnt5 = 0;
         for (int i =1; i <= num; i++) {
