@@ -1,5 +1,7 @@
 package com.util;
 
+import com.introtoproblemsolving.Pair;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -155,5 +157,33 @@ public class ArrayUtils {
             result.add(current);
         }
         return result;
+    }
+
+    public static Pair findTheMaxAndSecondMaxOfAnArray(final List<Integer> input) {
+        int max = Integer.MIN_VALUE, secondMax = Integer.MIN_VALUE;
+        for (int i = 0; i < input.size(); i++) {
+            Integer current = input.get(i);
+            if (current.compareTo(max) > 0) {
+                secondMax = max;
+                max = current;
+            } else if (current.compareTo(secondMax) > 0) {
+                secondMax = current;
+            }
+        }
+        return new Pair(secondMax, max);
+    }
+
+    public static Pair findTheMinAndSecondMinOfAnArray(final List<Integer> input) {
+        int min = Integer.MAX_VALUE, secondMin = Integer.MAX_VALUE;
+        for (int i = 0; i < input.size(); i++) {
+            Integer current = input.get(i);
+            if (current.compareTo(min) < 0) {
+                secondMin = min;
+                min = current;
+            } else if (current.compareTo(secondMin) < 0) {
+                secondMin = current;
+            }
+        }
+        return new Pair(secondMin, min);
     }
 }
