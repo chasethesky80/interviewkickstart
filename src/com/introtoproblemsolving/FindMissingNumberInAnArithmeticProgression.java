@@ -12,6 +12,7 @@ public class FindMissingNumberInAnArithmeticProgression {
     public static void main(String[] args) {
         System.out.println("FIND THE MISSING NUMBER IN THE ARRAY "+ findMissingNumberInAnAP(Arrays.asList(2, 4, 8, 10, 12)));
         System.out.println("FIND THE MISSING NUMBER IN THE ARRAY "+ findMissingNumberInAnAP(Arrays.asList(3, 6, 9, 15, 18)));
+        System.out.println("FIND THE MISSING NUMBER IN THE ARRAY "+ findMissingNumberInAnAP(Arrays.asList(3, 6, 9, 12, 15, 18, 21, 24)));
     }
 
     private static Integer findMissingNumberInAnAP(final List<Integer> input) {
