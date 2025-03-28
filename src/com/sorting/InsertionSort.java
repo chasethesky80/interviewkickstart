@@ -7,6 +7,7 @@ public class InsertionSort {
 
     public static void main(String[] args) {
         System.out.println("PERFORM INSERTION SORT "+ performInsertionSort(Arrays.asList(6, 5, 1, 8, 3, 2)));
+        System.out.println("PERFORM INSERTION SORT "+ performInsertionSort(Arrays.asList(1, 2, 3, 4, 5, 6)));
     }
 
     private static List<Integer> performInsertionSort(final List<Integer> input) {
