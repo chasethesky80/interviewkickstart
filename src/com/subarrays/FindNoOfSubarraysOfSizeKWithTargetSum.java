@@ -7,6 +7,7 @@ public class FindNoOfSubarraysOfSizeKWithTargetSum {
 
     public static void main(String[] args) {
         System.out.println("FIND NUMBER OF SUBARRAYS WITH SUM OF "+getNoOfSubarraysOfSizeKWithTargetSum(Arrays.asList(3, 7, 5, 8, 2, 10), 3, 15));
+        System.out.println("FIND NUMBER OF SUBARRAYS WITH SUM OF "+getNoOfSubarraysOfSizeKWithTargetSum(Arrays.asList(1, 2, 3, 2, 3, 4), 2, 5));
     }
 
     private static int getNoOfSubarraysOfSizeKWithTargetSum(final List<Integer> input, final int K, final int targetSum) {
