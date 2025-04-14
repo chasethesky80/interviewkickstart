@@ -7,6 +7,7 @@ public class AddOneToAnArrayOfNumbers {
 
     public static void main(String[] args) {
         System.out.println("ADD ONE "+ addOne(Arrays.asList(1, 2, 3)));
+        System.out.println("ADD ONE "+ addOne(Arrays.asList(9, 9, 9)));
     }
 
     private static Integer addOne(final List<Integer> input) {
