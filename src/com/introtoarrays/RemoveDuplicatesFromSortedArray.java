@@ -15,10 +15,9 @@ public class RemoveDuplicatesFromSortedArray {
     private static Integer removeDuplicates(final List<Integer> input) {
         int i = 0;
         for (int j = 1; j < input.size(); j++){
-            while (input.get(i).compareTo(input.get(j)) == 0) {
-                j++;
+            if (input.get(i).compareTo(input.get(j)) != 0) {
+                i++;
             }
-            i++;
             input.set(i, input.get(j));
         }
         return i+1;
