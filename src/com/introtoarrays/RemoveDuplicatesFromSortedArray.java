@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Given a sorted array with duplicates remove duplicates and return index after removing all duplicates
+ * Given a sorted array with duplicates remove duplicates and return length of sorted list
  */
 public class RemoveDuplicatesFromSortedArray {
 
