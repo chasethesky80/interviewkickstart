@@ -35,7 +35,7 @@ public class ArrayUtils {
     // TC = O(N) and SC = O(N) due to the new even PFSum array
     public static List<Integer> buildOddPrefixSumArray(final List<Integer> input) {
         final List<Integer> prefixSumArray = new ArrayList<>();
-        prefixSumArray.add(input.get(0));
+        prefixSumArray.add(0);
         prefixSumArray.add(input.get(1));
         for (int i =2; i < input.size(); i++) {
             if (i % 2 == 1) {
