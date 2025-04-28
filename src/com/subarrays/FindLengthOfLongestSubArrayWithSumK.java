@@ -40,8 +40,7 @@ public class FindLengthOfLongestSubArrayWithSumK {
      * 2 POINTER APPROACH IF THE SUBARRAY ONLY CONTAINS POSITIVES AND ZEROS
      */
     private static Integer longestSubArrayWithSumKTwoPointerApproach(final List<Integer> input, final Integer K) {
-        int i = 0, j = 0, sum = 0, maxLength = Integer.MIN_VALUE;
-        sum = sum + input.get(0);
+        int i = 0, j = 0, sum = input.get(0), maxLength = Integer.MIN_VALUE;
         while (j < input.size()) {
             if (sum == K) {
                 maxLength = Math.max(maxLength, j-i + 1);
