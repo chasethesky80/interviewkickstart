@@ -44,7 +44,7 @@ public class FindLengthOfLongestSubArrayWithSumK {
     }
 
     /**
-     * 2 POINTER APPROACH IF THE SUBARRAY ONLY CONTAINS POSITIVES AND ZEROS
+     * 2 POINTER APPROACH IF THE SUBARRAY ONLY CONTAINS POSITIVES AND ZEROS USES SLIDING WINDOW CONCEPT
      */
     private static Integer longestSubArrayWithSumKTwoPointerApproach(final List<Integer> input, final Integer K) {
         int i = 0, j = 0, sum = input.get(0), maxLength = Integer.MIN_VALUE;
@@ -68,6 +68,12 @@ public class FindLengthOfLongestSubArrayWithSumK {
         return maxLength;
     }
 
+    /**
+     * 2 POINTER APPROACH USES SLIDING WINDOW CONCEPT
+     * @param input
+     * @param K
+     * @return
+     */
     private static Integer longestSubArrayWithSumKTwoPointerAlternateApproach(final List<Integer> input, final Integer K) {
         int left = 0, sum = 0, maxLength = Integer.MIN_VALUE;
         for (int right = 0; right < input.size(); right++) {
