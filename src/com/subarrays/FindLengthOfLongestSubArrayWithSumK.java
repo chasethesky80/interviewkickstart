@@ -9,10 +9,17 @@ public class FindLengthOfLongestSubArrayWithSumK {
 
     public static void main(String[] args) {
         System.out.println("LONGEST SUBARRAY WITH SUM "+ longestSubArrayWithSumK(Arrays.asList(2, 0, 0, 3), 3));
-        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumKTwoPointerApproach(Arrays.asList(2, 0, 0, 3), 3));
+        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumKTwoPointerApproach(Arrays.asList(
+                2, 0, 0, 3), 3));
+        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER ALTERNATE APPROACH "+ longestSubArrayWithSumKTwoPointerAlternateApproach(Arrays.asList(
+                2, 0, 0, 3), 3));
         System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumKTwoPointerApproach(Arrays.asList(
                 2, 0, 0, 3, 1, 2, 0, 0, 0), 3));
+        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER ALTERATE APPROACH "+ longestSubArrayWithSumKTwoPointerAlternateApproach(Arrays.asList(
+                2, 0, 0, 3, 1, 2, 0, 0, 0), 3));
         System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumKTwoPointerApproach(Arrays.asList(
+                2, 0, 0, 3, 1, 2, 0, 0), 3));
+        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER ALTERNATE APPROACH "+ longestSubArrayWithSumKTwoPointerAlternateApproach(Arrays.asList(
                 2, 0, 0, 3, 1, 2, 0, 0), 3));
     }
 
@@ -56,6 +63,21 @@ public class FindLengthOfLongestSubArrayWithSumK {
             } else {
                 sum = sum - input.get(i);
                 i++;
+            }
+        }
+        return maxLength;
+    }
+
+    private static Integer longestSubArrayWithSumKTwoPointerAlternateApproach(final List<Integer> input, final Integer K) {
+        int left = 0, sum = 0, maxLength = Integer.MIN_VALUE;
+        for (int right = 0; right < input.size(); right++) {
+            sum = sum + input.get(right);
+            while (sum > K && left <= right) {
+                sum = sum - input.get(left);
+                left++;
+            }
+            if (sum == K) {
+                maxLength = Math.max(maxLength, right-left+1);
             }
         }
         return maxLength;
