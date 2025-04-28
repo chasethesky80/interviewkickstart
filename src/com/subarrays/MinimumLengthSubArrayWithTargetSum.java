@@ -11,6 +11,8 @@ public class MinimumLengthSubArrayWithTargetSum {
     public static void main(String[] args) {
         System.out.println("MINIMUM LENGTH SUBARRAY WITH SUM EQUALS TARGET SUM "+ minimumLengthSubArray(Arrays.asList(
                 2, 3, 1, 2, 4, 3), 7));
+        System.out.println("MINIMUM LENGTH SUBARRAY WITH SUM EQUALS TARGET SUM "+ minimumLengthSubArray(Arrays.asList(
+                2, 3, 1, 2, 4, 3, 7), 7));
     }
 
     /**
