@@ -13,21 +13,72 @@ public class MaxLengthSubArrayOfOnes {
         System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnes(Arrays.asList(
                 0, 1, 1, 1, 0, 1, 1, 0, 1
         )));
+        System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnesAlternateSoln(Arrays.asList(
+                0, 1, 1, 1, 0, 1, 1, 0, 1
+        )));
+        System.out.println();
         System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnes(Arrays.asList(
                 1, 1, 1, 1, 1, 1, 1, 0, 1
         )));
+        System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnesAlternateSoln(Arrays.asList(
+                1, 1, 1, 1, 1, 1, 1, 0, 1
+        )));
+        System.out.println();
         System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnes(Arrays.asList(
-                1, 0
+                1, 1, 0, 1
+        )));
+        System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnesAlternateSoln(Arrays.asList(
+                1, 1, 0, 1
+        )));
+        System.out.println();
+        System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnes(Arrays.asList(
+                0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1
+        )));
+        System.out.println("FIND MAXIMUM LENGTH SUBARRAY CONTAINING ONLY 1s IS "+ findMaxLengthSubArrayOfOnesAlternateSoln(Arrays.asList(
+                0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1
         )));
     }
 
     private static Integer findMaxLengthSubArrayOfOnes(final List<Integer> input) {
-        int i = 0, maxLength = Integer.MIN_VALUE;
-        for (int j = 0; j < input.size(); j++) {
-            if (input.get(j).compareTo(0) == 0) {
-                maxLength = Math.max(maxLength, j-i);
-                i=j+1;
+        int totalCount = Integer.MIN_VALUE;
+        for (int i = 0; i < input.size(); i++) {
+            if (input.get(i)== 1) {
+                continue;
             }
+            int leftCount = 0;
+            for (int j = i-1; j >=0; j--) {
+                if (input.get(j) == 1) {
+                    leftCount++;
+                } else {
+                    break;
+                }
+            }
+            int rightCount = 0;
+            for (int k = i+1; k < input.size(); k++) {
+                if (input.get(k) == 1) {
+                    rightCount++;
+                } else {
+                    break;
+                }
+            }
+            totalCount = Math.max(totalCount, leftCount + rightCount);
+        }
+        return totalCount;
+    }
+
+    private static Integer findMaxLengthSubArrayOfOnesAlternateSoln(final List<Integer> input) {
+        int start = 0, maxLength = 0, zeroCount = 0;
+        for (int end = 0; end < input.size(); end++) {
+            if (input.get(end).compareTo(0) == 0) {
+                zeroCount++;
+            }
+            while (zeroCount > 1) {
+                if (input.get(start).compareTo(0) == 0) {
+                    zeroCount--;
+                }
+                start++;
+            }
+            maxLength = Math.max(maxLength, end-start);
         }
         return maxLength;
     }
