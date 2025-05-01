@@ -5,19 +5,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FindLengthOfLongestSubArrayWithSumK {
+public class FindLengthOfLongestSubArrayWithPositiveNosAndSumK {
 
     public static void main(String[] args) {
         System.out.println("LONGEST SUBARRAY WITH SUM "+ longestSubArrayWithSumK(Arrays.asList(2, 0, 0, 3), 3));
-        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumKTwoPointerApproach(Arrays.asList(
+        System.out.println();
+        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumK(Arrays.asList(
                 2, 0, 0, 3), 3));
         System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER ALTERNATE APPROACH "+ longestSubArrayWithSumKTwoPointerAlternateApproach(Arrays.asList(
                 2, 0, 0, 3), 3));
-        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumKTwoPointerApproach(Arrays.asList(
+        System.out.println();
+        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumK(Arrays.asList(
                 2, 0, 0, 3, 1, 2, 0, 0, 0), 3));
         System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER ALTERATE APPROACH "+ longestSubArrayWithSumKTwoPointerAlternateApproach(Arrays.asList(
                 2, 0, 0, 3, 1, 2, 0, 0, 0), 3));
-        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumKTwoPointerApproach(Arrays.asList(
+        System.out.println();
+        System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER APPROACH "+ longestSubArrayWithSumK(Arrays.asList(
                 2, 0, 0, 3, 1, 2, 0, 0), 3));
         System.out.println("LONGEST SUBARRAY WITH SUM USING 2 POINTER ALTERNATE APPROACH "+ longestSubArrayWithSumKTwoPointerAlternateApproach(Arrays.asList(
                 2, 0, 0, 3, 1, 2, 0, 0), 3));
@@ -44,32 +47,8 @@ public class FindLengthOfLongestSubArrayWithSumK {
     }
 
     /**
-     * 2 POINTER APPROACH IF THE SUBARRAY ONLY CONTAINS POSITIVES AND ZEROS USES SLIDING WINDOW CONCEPT
-     */
-    private static Integer longestSubArrayWithSumKTwoPointerApproach(final List<Integer> input, final Integer K) {
-        int i = 0, j = 0, sum = input.get(0), maxLength = Integer.MIN_VALUE;
-        while (j < input.size()) {
-            if (sum == K) {
-                maxLength = Math.max(maxLength, j-i + 1);
-                j++;
-                if (j < input.size()) {
-                    sum = sum + input.get(j);
-                }
-            } else if (sum < K) {
-                j++;
-                if (j < input.size()) {
-                    sum = sum + input.get(j);
-                }
-            } else {
-                sum = sum - input.get(i);
-                i++;
-            }
-        }
-        return maxLength;
-    }
-
-    /**
      * 2 POINTER APPROACH USES SLIDING WINDOW CONCEPT
+     * NOTE: THIS APPROACH WILL ONLY WORK IF THE ARRAY CONTAINS POSITIVE NUMBERS
      * @param input
      * @param K
      * @return
