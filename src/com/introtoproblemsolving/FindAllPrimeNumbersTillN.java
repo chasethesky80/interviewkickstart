@@ -3,7 +3,7 @@ package com.introtoproblemsolving;
 import java.util.HashMap;
 import java.util.Map;
 
-public class findAllPrimeNumbersTillN {
+public class FindAllPrimeNumbersTillN {
 
     public static void main(String[] args) {
         System.out.println("PRINT ALL PRIME NUMBERS FROM 1 TO N");
