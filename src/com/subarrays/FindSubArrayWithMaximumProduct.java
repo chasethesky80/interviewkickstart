@@ -4,6 +4,7 @@ public class FindSubArrayWithMaximumProduct {
 
     public static void main(String[] args) {
         System.out.println("FIND SUBARRAY WITH MAX PRODUCT "+ findSubArrayWithMaximumProduct(new int[]{ 2, 3, -2, 4, 4, 7 }));
+        System.out.println("FIND SUBARRAY WITH MAX PRODUCT "+ findSubArrayWithMaximumProduct(new int[]{ 2, 3, -2, -5 }));
         System.out.println("FIND SUBARRAY WITH MAX PRODUCT "+ findSubArrayWithMaximumProduct(new int[]{ 2, 3, 1, 4 }));
         System.out.println("FIND SUBARRAY WITH MAX PRODUCT "+ findSubArrayWithMaximumProduct(new int[]{ 2, 3, 0, 4 }));
         System.out.println("FIND SUBARRAY WITH MAX PRODUCT "+ findSubArrayWithMaximumProduct(new int[]{ 2, 3, -2, -5 }));
