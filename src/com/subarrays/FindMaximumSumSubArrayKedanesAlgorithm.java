@@ -8,6 +8,7 @@ public class FindMaximumSumSubArrayKedanesAlgorithm {
     public static void main(String[] args) {
         System.out.println("MAX SUBARRAY SUM " + maximumSumSubArray(Arrays.asList(5, 6, 7, -3, 2, -10, -12, 8, 12, -4, 7, -2)));
         System.out.println("MAX SUBARRAY SUM " + maximumSumSubArrayIndices(Arrays.asList(5, 6, 7, -3, 2, -10, -12, 8, 12, -4, 7, -2)));
+        System.out.println("MAX SUBARRAY SUM " + maximumSumSubArray(Arrays.asList(-5, -7, -6, -8, -9)));
     }
 
     /**
