@@ -11,7 +11,7 @@ public class FindDuplicateElementInArray {
     }
 
     /**
-     * Implement the solution using a slow and fast pointer approach in O(N) time and O(1) space complexity
+     * Implement the solution using a slow and fast pointer approach and cycle detection in O(N) time and O(1) space complexity
      * @param arr
      * @return
      */
