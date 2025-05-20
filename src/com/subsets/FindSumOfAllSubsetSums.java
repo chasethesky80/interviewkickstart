@@ -8,6 +8,9 @@ import com.util.BitManipulationHelper;
 public class FindSumOfAllSubsetSums {
     public static void main(String[] args) {
         System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSums(new int[]{ 3, -1, 0, 6, 2, -3, 5}));
+        System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSumsOptimized(new int[]{ 3, -1, 0, 6, 2, -3, 5}));
+        System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSums(new int[]{ -2, 6, 4 }));
+        System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSumsOptimized(new int[]{ -2, 6, 4 }));
     }
 
     /**
@@ -32,6 +35,21 @@ public class FindSumOfAllSubsetSums {
             totalSum += sum;
         }
         return totalSum;
+    }
+
+    /**
+     * RETURN SUM OF ALL SUBSET SUMS USING CONTRIBUTION TECHNIQUE BY FINDING ALL SUBSETS WHERE ELEMENT
+     * AT INDEX i IS PRESENT AS 2^N-1 (SIMILAR TO SUM OF ALL SUBARRAY SUMS)
+     * TC = O(N) and SC = O(1)
+     * @param arr
+     * @return
+     */
+    private static Integer getSumOfAllSubsetSumsOptimized(int[] arr) {
+        int N = arr.length, sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+           sum+= (int) (arr[i]*Math.pow(2, N-1));
+        }
+        return sum;
     }
 
 }
