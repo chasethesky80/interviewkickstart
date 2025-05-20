@@ -14,6 +14,7 @@ public class CheckIfExistsSubsetWithSumK {
 
     /**
      * Using bit manipulation since an array with size N can produce 2^N subsets
+     * TC = O(N*2^N) and SC = O(1)
      * @param arr
      * @param k
      * @return
