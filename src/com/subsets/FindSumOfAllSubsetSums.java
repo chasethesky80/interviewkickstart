@@ -9,8 +9,10 @@ public class FindSumOfAllSubsetSums {
     public static void main(String[] args) {
         System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSums(new int[]{ 3, -1, 0, 6, 2, -3, 5}));
         System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSumsOptimized(new int[]{ 3, -1, 0, 6, 2, -3, 5}));
+        System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSumsOptimizedV2(new int[]{ 3, -1, 0, 6, 2, -3, 5}));
         System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSums(new int[]{ -2, 6, 4 }));
         System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSumsOptimized(new int[]{ -2, 6, 4 }));
+        System.out.println("SUM OF ALL SUBSET SUMS OF THE ARRAY IS "+ getSumOfAllSubsetSumsOptimizedV2(new int[]{ -2, 6, 4 }));
     }
 
     /**
@@ -48,6 +50,14 @@ public class FindSumOfAllSubsetSums {
         int N = arr.length, sum = 0;
         for (int i = 0; i < arr.length; i++) {
            sum+= (int) (arr[i]*Math.pow(2, N-1));
+        }
+        return sum;
+    }
+
+    private static Integer getSumOfAllSubsetSumsOptimizedV2(int[] arr) {
+        int N = arr.length, sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum+= arr[i]* (1 << N-1); // SINCE Math.pow(2, N-1) is 1 << N-1 using bit manipulation
         }
         return sum;
     }
