@@ -8,8 +8,8 @@ import com.util.BitManipulationHelper;
 public class CheckIfExistsSubsetWithSumK {
 
     public static void main(String[] args) {
-        System.out.println("DOES EXIST SUBSET WITH SUM K "+ doesExistSubsetOfSumK(new int[]{ 3, -1, 0, 6, 2, -3, 5}, 10));
-        System.out.println("DOES EXIST SUBSET WITH SUM K "+ countNumberOfSubsetsWithSumK(new int[]{ 3, -1, 0, 6, 2, -3, 5}, 10));
+        System.out.println("DOES EXIST SUBSET WITH SUM K "+ doesExistSubsetOfSumK(new int[]{ 3, -1, 0, 6, 2, -3, 5 }, 10));
+        System.out.println("DOES EXIST SUBSET WITH SUM K "+ countNumberOfSubsetsWithSumK(new int[]{ 3, -1, 0, 6, 2, -3, 5 }, 10));
     }
 
     /**
