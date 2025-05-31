@@ -7,7 +7,9 @@ public class CalculateNumberOfSetBitsInNumber {
 
     public static void main(String[] args) {
         System.out.println("NO OF SET BITS FOR NUMBER N IS "+calculateNoOfSetBits(150));
+        System.out.println("NO OF SET BITS FOR NUMBER N IS "+ calculateNoOfSetBitsAlternativeApproach(150));
         System.out.println("NO OF SET BITS FOR NUMBER N IS "+calculateNoOfSetBits(35));
+        System.out.println("NO OF SET BITS FOR NUMBER N IS "+ calculateNoOfSetBitsAlternativeApproach(35));
     }
 
     // NOTE: Here since n is a positive number its MSB cannot be 1 and so we do not need to compute the number of set
@@ -22,5 +24,16 @@ public class CalculateNumberOfSetBitsInNumber {
           }
       }
       return setBitCount;
+    }
+
+    private static int calculateNoOfSetBitsAlternativeApproach(int n) {
+        int count = 0;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                count++;
+            }
+            n = n >> 1;
+        }
+        return count;
     }
 }
