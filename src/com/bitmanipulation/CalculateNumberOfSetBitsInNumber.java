@@ -8,6 +8,8 @@ public class CalculateNumberOfSetBitsInNumber {
     public static void main(String[] args) {
         System.out.println("NO OF SET BITS FOR NUMBER N IS "+calculateNoOfSetBits(150));
         System.out.println("NO OF SET BITS FOR NUMBER N IS "+ calculateNoOfSetBitsAlternativeApproach(150));
+        System.out.println("NO OF SET BITS FOR NUMBER N IS "+calculateNoOfSetBits(75));
+        System.out.println("NO OF SET BITS FOR NUMBER N IS "+ calculateNoOfSetBitsAlternativeApproach(75));
         System.out.println("NO OF SET BITS FOR NUMBER N IS "+calculateNoOfSetBits(35));
         System.out.println("NO OF SET BITS FOR NUMBER N IS "+ calculateNoOfSetBitsAlternativeApproach(35));
     }
