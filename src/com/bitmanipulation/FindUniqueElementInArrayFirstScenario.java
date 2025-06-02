@@ -3,7 +3,7 @@ package com.bitmanipulation;
 // Given an array of N elements, every element repeats itself twice except a unique element, find that unique element
 // NOTE: This XOR solution works only when numbers repeat even number of times (like 2 times or 4 times or 6 times and so on)
 // and solution does not work when they repeat odd number of times
-public class FindUniqueElementInArray {
+public class FindUniqueElementInArrayFirstScenario {
 
     public static void main(String[] args) {
         System.out.println("FIND UNIQUE ELEMENT FOR ARRAY "+findUniqueElement(new int[]{ 2, 3, 2, 4, 3, 4, 5 })); // Each number repeats twice except one number
