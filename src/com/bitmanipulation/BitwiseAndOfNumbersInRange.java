@@ -8,6 +8,7 @@ public class BitwiseAndOfNumbersInRange {
 
     public static void main(String[] args) {
         System.out.println("Bitwise And Of Numbers in Range "+ bitwiseAndOfNumbersInRange(5, 7)); // EXPECTED VALUE IS 4
+        System.out.println("Bitwise And Of Numbers in Range "+ bitwiseAndOfNumbersInRange(0, 0)); // EXPECTED VALUE IS 0
     }
 
     private static int bitwiseAndOfNumbersInRange(int left, int right) {
