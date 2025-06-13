@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * GIVEN AN ARRAY OF INTEGERS, EVERY ELEMENT APPEARS TWICE EXCEPT 2 ELEMENTS THAT APPEAR ONLY ONCE, FIND THOSE 2 NUMBERS
  */
-public class FindUniqueElementsInArray {
+public class FindUniqueElementsInArrayThirdScenario {
 
     public static void main(String[] args) {
         System.out.println("UNIQUE NUMBERS IN ARRAY "+ Arrays.toString(findUniqueNumbers(new int[]{ 1, 3, 1, 4, 5, 3 })));
