@@ -39,7 +39,7 @@ public class FindMaximumSumSubArrayKedanesAlgorithm {
         int sum = 0, maxSum = Integer.MIN_VALUE, left = 0, right = 0;
         for (int i = 0; i < input.size(); i++) {
             sum = sum + input.get(i);
-            if (maxSum < sum) {
+            if (sum > maxSum) {
                 maxSum = sum;
                 right = i;
             }
