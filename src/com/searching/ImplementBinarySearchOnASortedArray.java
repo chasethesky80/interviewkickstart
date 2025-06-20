@@ -8,6 +8,7 @@ public class ImplementBinarySearchOnASortedArray {
 
     public static void main(String[] args) {
         System.out.println("PERFORMED BINARY SEARCH ON ASORTED ARRAY "+ binarySearch(new int[]{ 2, 3, 5, 6, 7 }, 5));
+        System.out.println("PERFORMED BINARY SEARCH ON ASORTED ARRAY "+ binarySearch(new int[]{ 2, 3, 5, 6, 7 }, 13));
     }
 
     private static int binarySearch(int[] arr, int target) {
