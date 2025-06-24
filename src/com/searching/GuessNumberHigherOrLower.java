@@ -9,11 +9,12 @@ package com.searching;
  * 1: Your guess is lower than the number I picked (i.e. num < pick).
  * 0: your guess is equal to the number I picked (i.e. num == pick).
  * Return the number that I picked.
+ * NOTE: COMMENTING OUT THE CODE BELOW SINCE THE GUESS API IS NOT IMPLEMENTED BUT THE CODE BELOW JUST SHOWS THE APPROACH
  */
 public class GuessNumberHigherOrLower {
 
     public static void main(String[] args) {
-        System.out.println("GUESS NUMBER TO PICK "+ guessNumber(3));
+//        System.out.println("GUESS NUMBER TO PICK "+ guessNumber(3));
     }
 
     /**
