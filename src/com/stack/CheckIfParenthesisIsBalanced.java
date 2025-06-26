@@ -14,6 +14,11 @@ public class CheckIfParenthesisIsBalanced {
         System.out.println(isBalanced("([{}[]]()){"));
     }
 
+    /**
+     * TC = O(N) and SC = O(N) for using an extra stack
+     * @param
+     * @return
+     */
     private static boolean isBalanced(String s) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < s.length(); i++) {
