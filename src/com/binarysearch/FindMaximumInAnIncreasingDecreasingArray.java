@@ -12,6 +12,11 @@ public class FindMaximumInAnIncreasingDecreasingArray {
         System.out.println("FIND MAXIMUM IN A INCREASING DECREASING ARRAY "+ findMaximumInIncreasingDecreasingArray(Arrays.asList(6, 8, 9, 10, 12, 14, 20)));
     }
 
+    /**
+     * SOLVED IN SCALAR - UTKARSH GUPTA'S - Binary Search on Array video
+     * @param input
+     * @return
+     */
     private static Integer findMaximumInIncreasingDecreasingArray(final List<Integer> input) {
         int l = 0, r = input.size() - 1;
         while (l <= r) {

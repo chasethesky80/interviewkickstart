@@ -1,6 +1,4 @@
-package com.searching;
-
-import javax.sound.midi.Soundbank;
+package com.binarysearch;
 
 /**
  * GIVEN A SORTED ARRAY AND A TARGET ELEMENT RETURN POSITION IN ARRAY WHERE ELEMENT SHOULD BE INSERTED TO MAINTAIN

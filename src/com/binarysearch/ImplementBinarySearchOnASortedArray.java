@@ -1,4 +1,4 @@
-package com.searching;
+package com.binarysearch;
 
 /** LEETCODE - Search Insert Position - REFER TO Searching 1 & Searching 2 videos from Bosscoderacademy for solution
  Given a sorted array of distinct integers and a target value, return the index if the target is found. If not,

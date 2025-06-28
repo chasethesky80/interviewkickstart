@@ -1,4 +1,4 @@
-package com.searching;
+package com.binarysearch;
 
 /**
  * We are playing the Guess Game. The game is as follows:
