@@ -9,7 +9,7 @@ public class FindFirstBadProductVersion {
 
     /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
-    private static int findFirstBadProductVersion(int n) {
+//    private static int findFirstBadProductVersion(int n) {
 //        int left = 1, right = n;
 //        while (left <= right) {
 //            int mid = (left + right) / 2;
@@ -21,5 +21,5 @@ public class FindFirstBadProductVersion {
 //
 //        }
 //        return left;
-    }
+//    }
 }
