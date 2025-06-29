@@ -9,6 +9,8 @@ public class FindLastOccurrenceOfANumberInSortedArray {
     public static void main(String[] args) {
         System.out.println("FindLastOccurrenceOfANumberInSortedArray "+ lastOccurrence(new int[] { 2, 3, 5, 5, 5, 6, 7, 8 },
                 5));
+        System.out.println("FindLastOccurrenceOfANumberInSortedArray "+ lastOccurrence(new int[] { 2, 3, 6, 5, 4, 6, 7, 8 },
+                5));
         System.out.println("FindLastOccurrenceOfANumberInSortedArray "+ lastOccurrence(new int[] { 2, 3, 6, 7, 8 },
                 4));
     }
@@ -16,11 +18,11 @@ public class FindLastOccurrenceOfANumberInSortedArray {
         int low = 0, high = nums.length - 1;
         while (low <= high) {
             int mid = low + ((high - low) / 2);
-            if (nums[mid] < target || nums[mid + 1] == target) {
+            if (nums[mid] < target || (nums[mid] == target && nums[mid + 1] == target)) {
                 low = mid + 1;
             } else if (nums[mid] > target) {
                 high = mid - 1;
-            } else if (nums[mid+1] != target) {
+            } else if (nums[mid] == target && nums[mid+1] != target) {
                 return mid;
             }
         }
