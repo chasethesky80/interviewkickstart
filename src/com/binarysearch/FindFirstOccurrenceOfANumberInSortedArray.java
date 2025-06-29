@@ -9,6 +9,8 @@ public class FindFirstOccurrenceOfANumberInSortedArray {
     public static void main(String[] args) {
         System.out.println("FindFirstOccurrenceOfANumberInSortedArray "+ firstOccurrence(new int[] { 2, 3, 5, 5, 5, 6, 7, 8 },
                 5));
+        System.out.println("FindFirstOccurrenceOfANumberInSortedArray "+ firstOccurrence(new int[] { 2, 3, 5, 5, 6, 6, 7, 8 },
+                6));
         System.out.println("FindFirstOccurrenceOfANumberInSortedArray "+ firstOccurrence(new int[] { 2, 3, 6, 7, 8 },
                 5));
     }
@@ -18,9 +20,9 @@ public class FindFirstOccurrenceOfANumberInSortedArray {
             int mid = low + ((high - low) / 2);
             if (nums[mid] < target) {
                 low = mid + 1;
-            } else if (nums[mid] > target || nums[mid-1] == target) {
+            } else if (nums[mid] > target || (nums[mid] == target && nums[mid-1] == target)) {
                 high = mid - 1;
-            } else if (nums[mid-1] != target) {
+            } else if (nums[mid] == target && nums[mid-1] != target) {
                 return mid;
             }
         }
