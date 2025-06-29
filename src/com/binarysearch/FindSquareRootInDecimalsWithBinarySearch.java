@@ -14,7 +14,6 @@ public class FindSquareRootInDecimalsWithBinarySearch {
         while (low <= high) {
             int mid = (low + high) / 2;
             if (mid * mid == N) {
-                ans = mid;
                 return mid;
             }
             else if (mid * mid < N) {
