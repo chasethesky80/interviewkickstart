@@ -10,7 +10,7 @@ package com.binarysearch;
  * You must write an algorithm with O(log n) runtime complexity.
  * NOTE: REFER SCALER VIDEO BY SANDEEP :- Binary Search - 2 for explanation
  */
-public class SearchInRotatedSortedArray {
+public class FindANumberInARotatedSortedArray {
 
     public static void main(String[] args) {
         System.out.println("Search In Rotated SortedArray "+ search(new int[] { 4,5,6,7,0,1,2 }, 1));
