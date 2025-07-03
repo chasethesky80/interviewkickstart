@@ -24,20 +24,17 @@ public class FindANumberInARotatedSortedArray {
         int low = 0, high = nums.length - 1, pointOfRotation = -1;
         while (low <= high) {
             int mid = low + ((high - low) / 2);
-            if (nums[mid] < nums[mid - 1] && nums[mid] < nums[mid+1]) {
-                pointOfRotation = mid;
-                break;
-            } else if (nums[mid] < nums[nums.length - 1]) {
+            if (nums[mid] <= nums[nums.length - 1]) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
             }
         }
         if (target > nums[nums.length - 1]) {
-            return binarySearch(nums, 0, pointOfRotation - 1, target);
+            return binarySearch(nums, 0, low - 1, target);
         }
         if (target <= nums[nums.length - 1]) {
-            return binarySearch(nums, pointOfRotation, nums.length - 1, target);
+            return binarySearch(nums, low, nums.length - 1, target);
         }
         return -1;
     }
