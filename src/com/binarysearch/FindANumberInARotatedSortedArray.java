@@ -14,14 +14,17 @@ public class FindANumberInARotatedSortedArray {
 
     public static void main(String[] args) {
         System.out.println("Search In Rotated SortedArray "+ search(new int[] { 4,5,6,7,0,1,2 }, 1));
+        System.out.println("Search In Rotated SortedArray "+ searchAlternateSolution(new int[] { 4,5,6,7,0,1,2 }, 1));
         System.out.println("Search In Rotated SortedArray "+ search(new int[] { 4,5,6,7,0,1,2 }, 6));
+        System.out.println("Search In Rotated SortedArray "+ searchAlternateSolution(new int[] { 4,5,6,7,0,1,2 }, 6));
         System.out.println("Search In Rotated SortedArray "+ search(new int[] { 4,5,6,7,0,1,2 }, 9));
+        System.out.println("Search In Rotated SortedArray "+ searchAlternateSolution(new int[] { 4,5,6,7,0,1,2 }, 9));
     }
     private static int search(int[] nums, int target) {
         if (nums.length == 1) {
             return nums[0] == target ? 0 : -1;
         }
-        int low = 0, high = nums.length - 1, pointOfRotation = -1;
+        int low = 0, high = nums.length - 1;
         while (low <= high) {
             int mid = low + ((high - low) / 2);
             if (nums[mid] <= nums[nums.length - 1]) {
@@ -35,6 +38,37 @@ public class FindANumberInARotatedSortedArray {
         }
         if (target <= nums[nums.length - 1]) {
             return binarySearch(nums, low, nums.length - 1, target);
+        }
+        return -1;
+    }
+
+    /**
+     * FIND THE SORTED HALF AND SEARCH FOR THE TARGET IN THAT SORTED HALF AS EITHER THE LEFT OR RIGHT OF THE MID
+     * WILL BE SORTED - EXPLANATION IN THIS VIDEO: https://www.youtube.com/watch?v=5qGrJbHhqFs
+     * @param nums
+     * @param target
+     * @return
+     */
+    private static int searchAlternateSolution(int[] nums, int target) {
+        int low = 0, high = nums.length - 1;
+        while (low <= high) {
+            int mid = low + ((high - low) / 2);
+            if (nums[mid] == target) {
+                return mid;
+            }
+            if (nums[low] <= nums[mid]) {
+                if (nums[low] <= target && target <= nums[mid]) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            } else {
+                if (nums[mid] <= target && target <= nums[high]) {
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
         }
         return -1;
     }
