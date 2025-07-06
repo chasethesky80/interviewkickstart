@@ -13,7 +13,7 @@ package com.binarysearch;
 public class FindMinimumInRotatedSortedArray {
 
     public static void main(String[] args) {
-        System.out.println("Find minimum of sorted array "+ findMin(new int[]{ 4,5,6,7,0,1,2 }));
+        System.out.println("Find minimum of rotated sorted array "+ findMin(new int[]{ 4,5,6,7,0,1,2 }));
     }
     private static int findMin(int[] nums) {
         int low = 0, high = nums.length - 1;
