@@ -9,6 +9,7 @@ package com.binarysearch;
  * or -1 if it is not in nums.
  * You must write an algorithm with O(log n) runtime complexity.
  * NOTE: REFER TAKE U FORWARD CHANNEL VIDEO for explanation: https://www.youtube.com/watch?v=w2G2W8l__pc
+ * TC = O(n/2) TO SHRINK THE SEARCH SPACE + O(logn) to perform binary search so total -> O(N) and SC = Constant
  */
 public class FindANumberInARotatedSortedArrayWithDuplicates {
 

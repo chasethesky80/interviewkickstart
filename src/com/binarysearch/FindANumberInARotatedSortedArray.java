@@ -45,6 +45,7 @@ public class FindANumberInARotatedSortedArray {
     /**
      * FIND THE SORTED HALF AND SEARCH FOR THE TARGET IN THAT SORTED HALF AS EITHER THE LEFT OR RIGHT OF THE MID
      * WILL BE SORTED - EXPLANATION IN THIS VIDEO: https://www.youtube.com/watch?v=5qGrJbHhqFs
+     * TC = O(logn) AND SC = constant
      * @param nums
      * @param target
      * @return
