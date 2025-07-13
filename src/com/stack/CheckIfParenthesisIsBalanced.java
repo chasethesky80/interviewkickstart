@@ -12,6 +12,7 @@ public class CheckIfParenthesisIsBalanced {
         System.out.println(isBalanced("({)}"));
         System.out.println(isBalanced("([{}[]]())"));
         System.out.println(isBalanced("([{}[]]()){"));
+        System.out.println(isBalanced(")[]}"));
     }
 
     /**
@@ -19,27 +20,29 @@ public class CheckIfParenthesisIsBalanced {
      * @param
      * @return
      */
-    private static boolean isBalanced(String s) {
-        Stack<Character> stack = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '{' || c == '[' || c == '(') {
-                stack.push(c);
-            } else if (c == '}') {
-                if (stack.peek() != '{') {
-                    return false;
+    private static boolean isBalanced(String str) {
+        final Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            char current = str.charAt(i);
+            if (current == '(' || current == '[' || current == '{') {
+                stack.push(current);
+            } else {
+                if (current == ')') {
+                    if (stack.isEmpty() || stack.peek() != '(') {
+                        return false;
+                    }
+                    stack.pop();
+                } else if (current == ']') {
+                    if (stack.isEmpty() || stack.peek() != '[') {
+                        return false;
+                    }
+                    stack.pop();
+                } else if (current == '}') {
+                    if (stack.isEmpty() || stack.peek() != '{') {
+                        return false;
+                    }
+                    stack.pop();
                 }
-                stack.pop();
-            } else if (c == ')') {
-                if (stack.peek() != '(') {
-                    return false;
-                }
-                stack.pop();
-            } else if (c == ']') {
-                if (stack.peek() != '[') {
-                    return false;
-                }
-                stack.pop();
             }
         }
         return stack.isEmpty();
