@@ -1,10 +1,5 @@
 package com.binarysearch;
 
-import com.util.StringUtils;
-
-import javax.sound.midi.Soundbank;
-import java.net.SocketTimeoutException;
-
 /**
  * You are given a sorted array consisting of only integers where every element appears exactly twice, except for one element
  * which appears exactly once.
