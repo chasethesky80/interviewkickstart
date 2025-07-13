@@ -9,7 +9,6 @@ public class CheckAnagrams {
         System.out.println(isAnagram("anagram", "nagaram"));
         System.out.println(isAnagram("dog", "cat"));
         System.out.println(isAnagram("dog", "god"));
-        System.out.println(isAnagram("dog", "dog"));
     }
 
     private static boolean isAnagram(String a, String b) {
@@ -22,7 +21,7 @@ public class CheckAnagrams {
             aChar[a.charAt(i) - 'a']++;
         }
         for (int i = 0; i < b.length(); i++) {
-
+            bChar[b.charAt(i) - 'a']++;
         }
         for (int i = 0; i < aChar.length; i++) {
             if (aChar[i] != bChar[i]) {
