@@ -17,10 +17,7 @@ public class FindPeakElementInAnArray {
         System.out.println("Find peak element in an array "+ findPeakElement(new int[]{ 1, 4, 2, 3, 5, 6, 4 }));
     }
     private static int findPeakElement(int[] nums) {
-        if (nums.length == 1) {
-            return 0;
-        }
-        if (nums[0] > nums[1]) {
+        if (nums.length == 1 || nums[0] > nums[1]) {
             return 0;
         }
         if (nums[nums.length - 1] > nums[nums.length - 2]) {
