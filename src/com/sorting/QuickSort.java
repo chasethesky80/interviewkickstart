@@ -23,6 +23,7 @@ public class QuickSort {
         if (start >= end) {
             return;
         }
+        //TODO NEED TO PICK PIVOT AS RANDOM NUMBER INSTEAD OF START OF ARRAY
         int smaller = start;
         for (int bigger = start+1; bigger <= end; bigger++) {
             if (array[bigger] <= array[start]) {
