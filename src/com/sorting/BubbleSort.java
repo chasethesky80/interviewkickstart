@@ -6,6 +6,7 @@ import java.util.List;
 public class BubbleSort {
     public static void main(String[] args) {
         System.out.println("SORTED ELEMENTS USING BUBBLE SORT "+ performBubbleSort(Arrays.asList(2, 5, 3, 7, 1, 6)));
+        System.out.println("SORTED ELEMENTS USING BUBBLE SORT "+ performBubbleSort(Arrays.asList(7, 5, 3, 7, 1, 2)));
         System.out.println("SSORT ELEMENTS WITH BUBBLE SORT ALTERNATIVE "+ performBubbleSort(Arrays.asList(3, 8, 8, 2, -1, 5, 5, -3)));
     }
 
