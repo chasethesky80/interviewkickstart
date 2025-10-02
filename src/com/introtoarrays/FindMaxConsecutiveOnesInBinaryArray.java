@@ -14,21 +14,16 @@ public class FindMaxConsecutiveOnesInBinaryArray {
                 0, 0, 1, 1, 0, 1, 1, 1, 1 }));
     }
     private static int findMaxConsecutiveOnes(int[] nums) {
-        int answer = 0;
+        int maxConsecutiveOnes = Integer.MIN_VALUE, countOfOnes = 0;
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 1) {
-                int count = 0;
-                for (int j = i; j < nums.length; j++) {
-                    if (nums[j] == 1) {
-                        count++;
-                    } else {
-                        i = j;
-                        break;
-                    }
-                }
-                answer = Math.max(answer, count);
+                countOfOnes++;
+            } else {
+                maxConsecutiveOnes = Math.max(maxConsecutiveOnes, countOfOnes);
+                countOfOnes = 0;
             }
         }
-        return answer;
+        maxConsecutiveOnes = Math.max(maxConsecutiveOnes, countOfOnes);
+        return maxConsecutiveOnes;
     }
 }
