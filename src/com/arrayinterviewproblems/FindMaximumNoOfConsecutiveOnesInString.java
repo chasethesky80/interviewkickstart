@@ -10,10 +10,19 @@ public class FindMaximumNoOfConsecutiveOnesInString {
         System.out.println("MAX CONSECUTIVE ONES IN A BINARY STRING IF ONLY ONE SWAP BETWEEN 0 AND 1 IS ALLOWED IS "+ findMaxNumberOfConsecutiveOnes(
                 "111011110110011011"
         ));
+        System.out.println("MAX CONSECUTIVE ONES IN A BINARY STRING IF ONLY ONE SWAP BETWEEN 0 AND 1 IS ALLOWED IS "+ findMaxConsecutiveOnesSlidingWindow(
+                "111011110110011011"
+        ));
         System.out.println("MAX CONSECUTIVE ONES IN A BINARY STRING IF ONLY ONE SWAP BETWEEN 0 AND 1 IS ALLOWED IS "+ findMaxNumberOfConsecutiveOnes(
                 "110111011"
         ));
+        System.out.println("MAX CONSECUTIVE ONES IN A BINARY STRING IF ONLY ONE SWAP BETWEEN 0 AND 1 IS ALLOWED IS "+ findMaxConsecutiveOnesSlidingWindow(
+                "110111011"
+        ));
         System.out.println("MAX CONSECUTIVE ONES IN A BINARY STRING IF ONLY ONE SWAP BETWEEN 0 AND 1 IS ALLOWED IS "+ findMaxNumberOfConsecutiveOnes(
+                "00110110"
+        ));
+        System.out.println("MAX CONSECUTIVE ONES IN A BINARY STRING IF ONLY ONE SWAP BETWEEN 0 AND 1 IS ALLOWED IS "+ findMaxConsecutiveOnesSlidingWindow(
                 "00110110"
         ));
     }
@@ -57,5 +66,24 @@ public class FindMaximumNoOfConsecutiveOnesInString {
                     leftCount + rightCount + 1);
         }
         return maxConsecutiveOnes;
+    }
+
+    private static int findMaxConsecutiveOnesSlidingWindow(final String N) {
+        int left = 0, right = 0, answer = 0, countOfZeros = 0;
+        while (right < N.length()) {
+            if (N.charAt(right) == '0') {
+                countOfZeros++;
+            }
+
+            while (countOfZeros == 2) {
+                if (N.charAt(left) == '0') {
+                    countOfZeros--;
+                }
+                left++;
+            }
+            answer = Math.max(answer, right - left + 1);
+            right++;
+        }
+        return answer;
     }
 }
