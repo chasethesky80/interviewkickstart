@@ -7,6 +7,11 @@ public class CheckIfAGivenNumberIsPrimeOrNot {
         System.out.println("IS GIVEN NUMBER A PRIME NUMBER "+isNumberAPrimeNumberBruteForce(18));
         System.out.println("IS GIVEN NUMBER A PRIME NUMBER "+isNumberAPrimeNumberOptimized(19));
         System.out.println("IS GIVEN NUMBER A PRIME NUMBER "+isNumberAPrimeNumberOptimized(15));
+        System.out.println();
+        System.out.println("IS GIVEN NUMBER A PRIME NUMBER "+isNumberPrimeAlternativeSolution(17));
+        System.out.println("IS GIVEN NUMBER A PRIME NUMBER "+isNumberPrimeAlternativeSolution(18));
+        System.out.println("IS GIVEN NUMBER A PRIME NUMBER "+isNumberPrimeAlternativeSolution(19));
+        System.out.println("IS GIVEN NUMBER A PRIME NUMBER "+isNumberPrimeAlternativeSolution(15));
     }
     // TC = O(N), SC = O(1) since no extra space used
     private static boolean isNumberAPrimeNumberBruteForce(final Integer N) {
@@ -28,6 +33,15 @@ public class CheckIfAGivenNumberIsPrimeOrNot {
             }
         }
         return numberOfFactors == 2;
+    }
+
+    private static boolean isNumberPrimeAlternativeSolution(final Integer N) {
+        for (int i = 2; i < N; i++) {
+            if (N % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private int findLargestPrimeFactorOfANumber(final int N) {
