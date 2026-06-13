@@ -16,6 +16,13 @@ public class MoveAllZerosOfArrayToEndOfArray {
                 break;
             }
         }
+        /**
+         * If there are no zeros in the array to begin with then just return the original array since
+         * there is nothing to do here
+         */
+        if (j == -1) {
+            return arr;
+        }
         for (int k = j + 1; k < arr.length; k++) {
             if (arr[k] != 0) {
                 int temp = arr[j];
