@@ -6,6 +6,7 @@ import java.util.List;
 
         public static void main(String[] args) {
             System.out.println("MAX SUB-ARRAY SUM OF LENGTH K BRUTE FORCE " + getMaximumSumSubArrayWidthSlidingWindow(List.of( -3, 4, -2, 5, 3, -2, 8, 2, -1, 4 ), 5));
+            System.out.println("MAX SUB-ARRAY SUM OF LENGTH K BRUTE FORCE " + getMaximumSumSubArrayWidthSlidingWindowAlternativeSolution(List.of( -3, 4, -2, 5, 3, -2, 8, 2, -1, 4 ), 5));
         }
 
         private static int getMaximumSumSubArrayWidthSlidingWindow(final List<Integer> input, final int K) {
@@ -21,4 +22,21 @@ import java.util.List;
             }
             return maxSum;
         }
+
+         private static Integer getMaximumSumSubArrayWidthSlidingWindowAlternativeSolution(final List<Integer> arr, int K) {
+             int maxSum = Integer.MIN_VALUE, sum = 0, N = arr.size();
+             int end;
+             int start = 0;
+             for (end = 0; end < K; end++) {
+                 sum += arr.get(end);
+             }
+             while (end <  N) {
+                 sum = sum + arr.get(end) - arr.get(start);
+                 end++;
+                 start++;
+                 maxSum = Math.max(maxSum, sum);
+             }
+             maxSum = sum;
+             return maxSum;
+         }
 }
