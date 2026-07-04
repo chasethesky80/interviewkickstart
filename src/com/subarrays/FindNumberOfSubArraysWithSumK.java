@@ -3,8 +3,8 @@ package com.subarrays;
 public class FindNumberOfSubArraysWithSumK {
 
     public static void main(String[] args) {
-        System.out.println("NUMBER OF SUBARRAYS WITH SUM K"+ numOfSubArraysWithSumKWithSlidingWindowTechnique(new int[]{ 1, 2, 3 }, 3));
-        System.out.println("NUMBER OF SUBARRAYS WITH SUM K"+ numOfSubArraysWithSumKWithSlidingWindowTechnique(new int[]{ 1, 1, 1 }, 2));
+        System.out.println("NUMBER OF SUBARRAYS WITH SUM K "+ numOfSubArraysWithSumKWithSlidingWindowTechnique(new int[]{ 1, 2, 3 }, 3));
+        System.out.println("NUMBER OF SUBARRAYS WITH SUM K "+ numOfSubArraysWithSumKWithSlidingWindowTechnique(new int[]{ 1, 1, 1 }, 2));
     }
 
     /**
