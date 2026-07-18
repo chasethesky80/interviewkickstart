@@ -68,22 +68,21 @@ public class FindMaximumNoOfConsecutiveOnesInString {
         return maxConsecutiveOnes;
     }
 
-    private static int findMaxConsecutiveOnesSlidingWindow(final String N) {
-        int left = 0, right = 0, answer = 0, countOfZeros = 0;
-        while (right < N.length()) {
-            if (N.charAt(right) == '0') {
+    private static int findMaxConsecutiveOnesSlidingWindow(final String A) {
+        int left = 0, right = 0, countOfZeros = 0, maxConsecutiveOnes = 0;
+        while (right < A.length()) {
+            if (A.charAt(right) == '0') {
                 countOfZeros++;
             }
-
             while (countOfZeros == 2) {
-                if (N.charAt(left) == '0') {
+                if (A.charAt(left) == '0') {
                     countOfZeros--;
                 }
                 left++;
             }
-            answer = Math.max(answer, right - left + 1);
+            maxConsecutiveOnes = Math.max(maxConsecutiveOnes, right - left + 1);
             right++;
         }
-        return answer;
+        return maxConsecutiveOnes;
     }
 }

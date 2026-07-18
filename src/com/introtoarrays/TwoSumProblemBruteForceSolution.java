@@ -1,5 +1,7 @@
 package com.introtoarrays;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 // GIVEN AN ARRAY OF SIZE N, CHECK IF EXISTS A PAIR (I,J) SUCH THAT THEIR SUM EQUALS A GIVEN INPUT K
@@ -7,7 +9,9 @@ public class TwoSumProblemBruteForceSolution {
 
     public static void main(String[] args) {
         System.out.println("DOES EXIST A PAIR WITH SUM K "+ doesAPairExistWithSumEqualsKBruteForce(List.of( 3, -2, 1, 4, 3, 6, 8 ), 10));
+        System.out.println("DOES EXIST A PAIR WITH SUM K "+ doesPairExistWithSumEqualsKTwoPointers(List.of( 3, -2, 1, 4, 3, 6, 8 ), 10));
         System.out.println("DOES EXIST A PAIR WITH SUM K "+ doesAPairExistWithSumEqualsKBruteForce(List.of( 2, 4, -3, 7 ), 5));
+        System.out.println("DOES EXIST A PAIR WITH SUM K "+ doesPairExistWithSumEqualsKTwoPointers(List.of( 2, 4, -3, 7 ), 5));
     }
     // TC = O(N^2) since there are 2 for loops with N iterations each and SC = O(1)
     // NO OF ITERATIONS :- N * (N-1) / 2 :- (N-1) + (N-2) + (N-3) + ........+1 + 0 = (N-1) * N / 2
@@ -17,6 +21,24 @@ public class TwoSumProblemBruteForceSolution {
                 if (Integer.sum(input.get(i), input.get(j)) == K) {
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    // TC = O(NLOGN) since we are sorting the array and SC = O(1)
+    private static boolean doesPairExistWithSumEqualsKTwoPointers(final List<Integer> input, final Integer K) {
+        Collections.sort(new ArrayList(input));
+        int i = 0, j = input.size() - 1;
+        while (i <= j) {
+            int sum = Integer.sum(input.get(i), input.get(j));
+            if (sum == K) {
+                return true;
+            }
+            if (sum < K) {
+                i++;
+            } else {
+                j--;
             }
         }
         return false;

@@ -2,9 +2,7 @@ package com.arrayinterviewproblems;
 
 import com.util.ArrayUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class PracticeSection {
 
@@ -42,6 +40,11 @@ public class PracticeSection {
         System.out.println("MAX SUB-ARRAY SUM OF LENGTH K OPTIMIZED WITH SLIDING WINDOW TECHNIQUE " + maximumSubarraySum(new int[]{ 3, -2, 4, -1, 2, 6 }, 3));
         System.out.println("NO OF SUBARRAYS WITH SIZE K AND SUM Q " + noOfSubarraysOfSizeKWithSum(List.of(1, 2, 3, 2, 3, 4), 2, 5));
         System.out.println("NO OF SUBARRAYS WITH SIZE K AND SUM Q " + noOfSubarraysOfSizeKWithSum(List.of(1, 2, 3, 2, 4, 5, 6), 2, 5));
+        System.out.println("GET QUARTER FOR MONTH " + getQuarter("January"));
+        System.out.println("GET QUARTER FOR MONTH " + getQuarter("April"));
+        System.out.println("GET QUARTER FOR MONTH " + getQuarter("July"));
+        System.out.println("INTERSECTION OF 2 ARRAYS "+ findIntersectionOfTwoArrays(new int[]{1, 2, 3, 4, 5}, new int[]{4, 5, 6, 7, 8}));
+        System.out.println("INTERSECTION OF 2 ARRAYS "+ findIntersectionOfTwoArrays(new int[]{ 4, 5, 9 }, new int[]{ 4, 4, 8, 9, 9 }));
     }
 
 
@@ -258,5 +261,36 @@ public class PracticeSection {
             end++;
         }
         return maxSum;
+    }
+
+    private static String getQuarter(final String month) {
+        return switch (month) {
+            case "January", "February", "March" -> "Q1";
+            case "April", "May", "June" -> "Q2";
+            case "July", "August", "September" -> "Q3";
+            case "October", "November", "December" -> "Q4";
+            default -> {
+                yield "Bad Response";
+            }
+        };
+    }
+
+    private static Set<Integer> findIntersectionOfTwoArrays(final int[] arr1, final int[] arr2) {
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        Set<Integer> intersection = new HashSet<>();
+        int i = 0, j = 0;
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] == arr2[j]) {
+                intersection.add(arr1[i]);
+                i++;
+                j++;
+            } else if (arr1[i] < arr2[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return intersection;
     }
 }
