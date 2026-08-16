@@ -45,6 +45,9 @@ public class PracticeSection {
         System.out.println("GET QUARTER FOR MONTH " + getQuarter("July"));
         System.out.println("INTERSECTION OF 2 ARRAYS "+ findIntersectionOfTwoArrays(new int[]{1, 2, 3, 4, 5}, new int[]{4, 5, 6, 7, 8}));
         System.out.println("INTERSECTION OF 2 ARRAYS "+ findIntersectionOfTwoArrays(new int[]{ 4, 5, 9 }, new int[]{ 4, 4, 8, 9, 9 }));
+        System.out.println("MAX OF STOCKS "+findMaxOfProfit(new int[]{ 7, 1, 5, 3, 6, 4, 0, 2, 6, 10, 9 }));
+        System.out.println("ROTATED ARRAY "+ Arrays.toString(rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 1)));
+        System.out.println("ROTATED ARRAY "+ Arrays.toString(rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 2)));
     }
 
 
@@ -292,5 +295,24 @@ public class PracticeSection {
             }
         }
         return intersection;
+    }
+
+    private static  Integer findMaxOfProfit(final int[] arr) {
+        int min = Integer.MAX_VALUE, ans = 0;
+        for (int i: arr) {
+            if (i < min) {
+                min = i;
+            }
+            ans = Math.max(ans, i - min);
+        }
+        return ans;
+    }
+
+    private static int[] rotateArray(final int[] arr, int K) {
+        int N = arr.length - 1;
+        ArrayUtils.reversePartOfArray(arr, 0, N-1);
+        ArrayUtils.reversePartOfArray(arr, 0, N-K-1);
+        ArrayUtils.reversePartOfArray(arr, N-K, N-1);
+        return arr;
     }
 }
