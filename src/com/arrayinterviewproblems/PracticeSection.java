@@ -48,6 +48,7 @@ public class PracticeSection {
         System.out.println("MAX OF STOCKS "+findMaxOfProfit(new int[]{ 7, 1, 5, 3, 6, 4, 0, 2, 6, 10, 9 }));
         System.out.println("ROTATED ARRAY "+ Arrays.toString(rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 1)));
         System.out.println("ROTATED ARRAY "+ Arrays.toString(rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 2)));
+        System.out.println("ARRAY INTERSECTION "+ Arrays.toString(intersection(new int[]{ 4, 9, 5 }, new int[]{ 9, 4, 9, 8, 4 })));
     }
 
 
@@ -314,5 +315,25 @@ public class PracticeSection {
         ArrayUtils.reversePartOfArray(arr, 0, N-K-1);
         ArrayUtils.reversePartOfArray(arr, N-K, N-1);
         return arr;
+    }
+
+    private static int[] intersection(final int[] arr1, final int[] arr2) {
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        Set<Integer> intersection = new HashSet<>();
+        int i = 0, j = 0;
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] == arr2[j]) {
+                intersection.add(arr1[i]);
+                i++;
+                j++;
+            } else if (arr1[i] < arr2[j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return intersection.stream().mapToInt(Integer::intValue).toArray();
+
     }
 }
