@@ -13,9 +13,11 @@ public class FindMaximumSubArraySumOfLengthK {
         System.out.println();
         System.out.println("MAX SUB-ARRAY SUM OF LENGTH K OPTIMIZED WITH PREFIX SUM TECHNIQUE " + getMaxSubArraySumOfSizeKForArrayOptimizedWithPrefixSumArray(List.of( -3, 4, -2, 5, 3, -2, 8, 2, -1, 4 ), 5));
         System.out.println();
-        System.out.println("MAX SUB-ARRAY SUM OF LENGTH K OPTIMIZED WITH SLIDING WINDOW TECHNIQUE " + getMaxSubArraySumOfSizeKForArrayOptimizedWithSlidingWindowTechnique(List.of( -3, 4, -2, 5, 3, -2, 8, 2, -1, 4 ), 5));
+        System.out.println("MAX SUB-ARRAY SUM OF LENGTH K OPTIMIZED WITH SLIDING WINDOW TECHNIQUE FOR LOOP " + getMaxSubArraySumOfSizeKSlidingWindowTechniqueWithForLoop(List.of( -3, 4, -2, 5, 3, -2, 8, 2, -1, 4 ), 5));
         System.out.println();
-        System.out.println("MAX SUB-ARRAY SUM OF LENGTH K OPTIMIZED WITH SLIDING WINDOW TECHNIQUE " + getMaxSubArraySumOfSizeKForArrayOptimizedWithSlidingWindowTechnique(List.of(3, -2, 4, -1, 2, 6), 3));
+        System.out.println("MAX SUB-ARRAY SUM OF LENGTH K OPTIMIZED WITH SLIDING WINDOW TECHNIQUE WHILE LOOP " + getMaxSubArraySumOfSizeKSlidingWindowTechniqueWithWhileLoop(new int[] { -3, 4, -2, 5, 3, -2, 8, 2, -1, 4 }, 5));
+        System.out.println();
+        System.out.println("MAX SUB-ARRAY SUM OF LENGTH K OPTIMIZED WITH SLIDING WINDOW TECHNIQUE " + getMaxSubArraySumOfSizeKSlidingWindowTechniqueWithForLoop(List.of(3, -2, 4, -1, 2, 6), 3));
     }
 
     // TC = O((N-K+1) * K) DUE TO N-K+1 SUB-ARRAYS AND EACH SUB-ARRAY OF SIZE K AND SC = O(1) DUE TO NO EXTRA SPACE USED
@@ -63,7 +65,7 @@ public class FindMaximumSubArraySumOfLengthK {
     }
 
     // TC = O(N) DUE TO JUST ONE FOR LOOP AND SC = O(1) SINCE NO EXTRA SPACE USED
-    private static int getMaxSubArraySumOfSizeKForArrayOptimizedWithSlidingWindowTechnique(final List<Integer> input, final Integer K) {
+    private static int getMaxSubArraySumOfSizeKSlidingWindowTechniqueWithForLoop(final List<Integer> input, final Integer K) {
         int sum = 0;
         for (int i=0; i < K; i++) {
             sum = sum + input.get(i);
@@ -74,6 +76,21 @@ public class FindMaximumSubArraySumOfLengthK {
             int j = i + K-1;
             sum = sum-input.get(i-1) + input.get(j);
             maxSum = Math.max(maxSum, sum);
+        }
+        return maxSum;
+    }
+
+    private static int getMaxSubArraySumOfSizeKSlidingWindowTechniqueWithWhileLoop(final int[] arr, final int K) {
+        int sum = 0, maxSum = Integer.MIN_VALUE, i = 0, end = 0;;
+        for (end = 0; end < K; end++) {
+            sum += arr[end];
+        }
+        maxSum = sum;
+        while (end < arr.length) {
+            sum = sum + arr[end] - arr[i];
+            maxSum = Math.max(maxSum, sum);
+            i++;
+            end++;
         }
         return maxSum;
     }
