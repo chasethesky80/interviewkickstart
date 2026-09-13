@@ -336,4 +336,19 @@ public class PracticeSection {
         return intersection.stream().mapToInt(Integer::intValue).toArray();
 
     }
+
+    private int maxSumOfSubArrayOfLength(final int[] arr, final int K) {
+        int sum = 0, maxSum = Integer.MIN_VALUE, i = 0, end = 0;;
+        for (end = 0; end < K; end++) {
+            sum += arr[end];
+        }
+        maxSum = sum;
+        while (end < arr.length) {
+            sum = sum + arr[end] - arr[i];
+            maxSum = Math.max(maxSum, sum);
+            i++;
+            end++;
+        }
+        return maxSum;
+    }
 }
