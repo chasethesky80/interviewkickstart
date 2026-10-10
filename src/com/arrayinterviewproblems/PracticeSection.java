@@ -49,6 +49,10 @@ public class PracticeSection {
         System.out.println("ROTATED ARRAY "+ Arrays.toString(rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 1)));
         System.out.println("ROTATED ARRAY "+ Arrays.toString(rotateArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8}, 2)));
         System.out.println("ARRAY INTERSECTION "+ Arrays.toString(intersection(new int[]{ 4, 9, 5 }, new int[]{ 9, 4, 9, 8, 4 })));
+        System.out.println("PRINT START AND END OF SUBARRAY OF LENGTH K ");
+        printStartAndEndIndices(new int[]{ 3, 4, 2, -1, 6, 7, 8, 9, 3, 2, -1, 4 }, 3);
+        System.out.println();
+        printStartAndEndIndices(new int[]{ 3, 4, 2, -1, 6, 7, 8, 9, 3, 2, -1, 4 }, 6);
     }
 
 
@@ -337,18 +341,64 @@ public class PracticeSection {
 
     }
 
-    private int maxSumOfSubArrayOfLength(final int[] arr, final int K) {
-        int sum = 0, maxSum = Integer.MIN_VALUE, i = 0, end = 0;;
-        for (end = 0; end < K; end++) {
+   private int maxSumSubArray(final int[] arr, final int K) {
+        int st = 0, end = 0, N = arr.length, maxSum = Integer.MIN_VALUE, sum = 0;
+        while (end < K) {
             sum += arr[end];
+            end++;
         }
         maxSum = sum;
-        while (end < arr.length) {
-            sum = sum + arr[end] - arr[i];
+        while (end < N) {
+            sum = sum + arr[end] - arr[st];
             maxSum = Math.max(maxSum, sum);
-            i++;
+            st++;
             end++;
         }
         return maxSum;
-    }
+   }
+
+   private int findMaxColumnSumOfMatrix(final int[][] arr) {
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < arr[i].length; j++) {
+                sum += arr[i][j];
+            }
+            maxSum = Math.max(maxSum, sum);
+        }
+        return maxSum;
+   }
+
+    /**
+     * Find length of max consecutive ones with max one swap allowed between
+     * a 0 and 1
+     * @param arr
+     * @return
+     */
+   private int lengthOfMaxConsecutiveOnes(final int[] arr) {
+        int maxCount = Integer.MIN_VALUE, st = 0, end = 0, count = 0;
+        while (end < arr.length) {
+            if (arr[end] == 0) {
+                count++;
+            }
+            while (count >= 2) {
+                if (arr[st] == 0) {
+                    count--;
+                }
+                st++;
+            }
+            maxCount = Math.max(maxCount, end-st+1);
+            end++;
+        }
+        return maxCount;
+   }
+
+   private static void printStartAndEndIndices(final int[] arr, final int K) {
+       int st = 0, end = K-1;
+       while (end < arr.length) {
+           System.out.println("START AND END INDICES "+st +" "+ end);
+           st++;
+           end++;
+       }
+   }
 }
