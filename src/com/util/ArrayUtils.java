@@ -79,6 +79,16 @@ public class ArrayUtils {
         return input;
     }
 
+    public static String reversePartOfString(final String input, final int startIndex, final int endIndex) {
+        final StringBuilder sb = new StringBuilder(input);
+        for (int i =startIndex, j = endIndex; i <= j; i++, j--) {
+            char temp = sb.charAt(i);
+            sb.setCharAt(i, sb.charAt(j));
+            sb.setCharAt(j, temp);
+        }
+        return sb.toString();
+    }
+
     public static List<List<Integer>> getTransposeOf2DSquareMatrix(final List<List<Integer>> input) {
         for (int i=0;i < input.size();i++) {
             for (int j = i+1; j < input.get(0).size(); j++) {
@@ -166,7 +176,7 @@ public class ArrayUtils {
             if (current.compareTo(max) > 0) {
                 secondMax = max;
                 max = current;
-            } else if (current.compareTo(secondMax) > 0) {
+            } else if (current.compareTo(max) < 0 && current.compareTo(secondMax) > 0) {
                 secondMax = current;
             }
         }
@@ -180,7 +190,7 @@ public class ArrayUtils {
             if (current.compareTo(min) < 0) {
                 secondMin = min;
                 min = current;
-            } else if (current.compareTo(secondMin) < 0) {
+            } else if (current.compareTo(min) > 0 && current.compareTo(secondMin) < 0) {
                 secondMin = current;
             }
         }
