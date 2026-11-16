@@ -3,6 +3,7 @@ package com.arrayinterviewproblems;
 import com.util.ArrayUtils;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PracticeSection {
 
@@ -53,6 +54,10 @@ public class PracticeSection {
         printStartAndEndIndices(new int[]{ 3, 4, 2, -1, 6, 7, 8, 9, 3, 2, -1, 4 }, 3);
         System.out.println();
         printStartAndEndIndices(new int[]{ 3, 4, 2, -1, 6, 7, 8, 9, 3, 2, -1, 4 }, 6);
+        System.out.println("FIRST NON REPEATED CHARACTER "+ firstNonRepeatedCharacter("werrwetss"));
+        System.out.println("REVERSE SENTENCE WORD BY WORD "+ reverseSentenceWordByWord("I am a good boy"));
+        System.out.println("REVERSE SENTENCE WORD BY WORD "+ reverseSentenceWordByWord("mailmen bring letters"));
+        System.out.println("SECOND MAX OF ARRAY "+ ArrayUtils.findTheMaxAndSecondMaxOfAnArray(List.of(8, 8, 7, 6, 5)).getLeft());
     }
 
 
@@ -400,5 +405,40 @@ public class PracticeSection {
            st++;
            end++;
        }
+   }
+
+   private static Character firstNonRepeatedCharacter(final String input) {
+        Map<Character, Integer> frequencyMap = new LinkedHashMap<>();
+        for (char c: input.toCharArray()) {
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
+        }
+        for (Map.Entry<Character, Integer> entry: frequencyMap.entrySet()) {
+            if (entry.getValue() == 1) {
+                return entry.getKey();
+            }
+        }
+        return null;
+   }
+
+   private static Map<Character, Integer> getFrequencyMap(final String str) {
+       return str.chars().mapToObj(c -> (char) c).collect(Collectors.toMap(c -> c,
+               c -> 1, Integer::sum));
+   }
+
+   private static String reverseSentenceWordByWord(String input) {
+       input = ArrayUtils.reversePartOfString(input, 0, input.length()-1);
+       int st = 0, end = 0;
+       while (end < input.length()) {
+           while (input.charAt(end) != ' ') {
+               end++;
+               if (end == input.length()) {
+                   break;
+               }
+           }
+           input = ArrayUtils.reversePartOfString(input, st, end-1);
+           st = end + 1;
+           end = st;
+       }
+       return input;
    }
 }
