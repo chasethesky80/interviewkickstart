@@ -2,6 +2,7 @@ package com.arrayinterviewproblems;
 
 import com.util.ArrayUtils;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -58,6 +59,9 @@ public class PracticeSection {
         System.out.println("REVERSE SENTENCE WORD BY WORD "+ reverseSentenceWordByWord("I am a good boy"));
         System.out.println("REVERSE SENTENCE WORD BY WORD "+ reverseSentenceWordByWord("mailmen bring letters"));
         System.out.println("SECOND MAX OF ARRAY "+ ArrayUtils.findTheMaxAndSecondMaxOfAnArray(List.of(8, 8, 7, 6, 5)).getLeft());
+        System.out.println("SUM OF N NATURAL NUMBERS "+ sum(3));
+        System.out.println("IS PALINDROME "+ isPalindrome("MALAYALAM"));
+        System.out.println("IS PALINDROME "+ isPalindrome("FEDERATION"));
     }
 
 
@@ -440,5 +444,26 @@ public class PracticeSection {
            end = st;
        }
        return input;
+   }
+
+   private static int sum(int N) {
+       if (N == 1) {
+           return 1;
+       }
+       return N + sum(N-1);
+   }
+
+   private static boolean isPalindrome(String N) {
+       return isPalindromeHelper(N, 0 , N.length()-1);
+   }
+
+   private static boolean isPalindromeHelper(final String N, final int i, final int j) {
+       if (i >= j) {
+           return true;
+       }
+       if (N.charAt(i) != N.charAt(j)) {
+           return false;
+        }
+       return isPalindromeHelper(N, i+1, j-1);
    }
 }
