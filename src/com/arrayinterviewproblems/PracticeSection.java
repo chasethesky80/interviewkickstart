@@ -62,6 +62,7 @@ public class PracticeSection {
         System.out.println("SUM OF N NATURAL NUMBERS "+ sum(3));
         System.out.println("IS PALINDROME "+ isPalindrome("MALAYALAM"));
         System.out.println("IS PALINDROME "+ isPalindrome("FEDERATION"));
+        System.out.println("SUM OF DIGITS OF NUMBER "+ sumDigits(42689));
     }
 
 
@@ -465,5 +466,12 @@ public class PracticeSection {
            return false;
         }
        return isPalindromeHelper(N, i+1, j-1);
+   }
+
+   private static int sumDigits(int N) {
+       if (N < 10) {
+           return N;
+       }
+       return N % 10 + sumDigits(N/10);
    }
 }

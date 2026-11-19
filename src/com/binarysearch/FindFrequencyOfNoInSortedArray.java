@@ -51,7 +51,7 @@ public class FindFrequencyOfNoInSortedArray {
             if (current.compareTo(K) == 0) {
                 if (middle == 0 || current.compareTo(input.get(middle-1)) != 0) {
                     return middle;
-                } else if (current.compareTo(input.get(middle+1)) == 0) {
+                } else {
                     r = middle - 1;
                 }
             } else if (current.compareTo(K) < 0) {
@@ -77,7 +77,7 @@ public class FindFrequencyOfNoInSortedArray {
             if (current.compareTo(K) == 0) {
                 if (middle == input.size() - 1 || current.compareTo(input.get(middle+1)) != 0) {
                     return middle;
-                } else if (current.compareTo(input.get(middle+1)) == 0) {
+                } else {
                     l = middle + 1;
                 }
             } else if (current.compareTo(K) < 0) {
