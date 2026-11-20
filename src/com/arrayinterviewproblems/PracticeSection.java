@@ -63,6 +63,10 @@ public class PracticeSection {
         System.out.println("IS PALINDROME "+ isPalindrome("FEDERATION"));
         System.out.println("SUM OF DIGITS OF NUMBER "+ sumDigits(42689));
         System.out.println("THREE NUMBER SUM "+threeNumberSum(new int[]{ -8, -6, 1, 2, 3, 5, 6, 12 }, 0));
+        System.out.println("LONGEST SUBSTRING WITH NON REPEATING CHARACTERS "+ longestSubstringWithNonRepeatingCharacters(
+               "aebcabgeb@#gbkdb#"
+        ));
+
     }
 
 
@@ -496,5 +500,23 @@ public class PracticeSection {
             }
         }
         return result ;
+    }
+
+    private static int longestSubstringWithNonRepeatingCharacters(String s) {
+        int st = 0, end = 0, result = 0;
+        final Map<Character, Integer> characterMap = new HashMap<>();
+        while (end < s.length()) {
+            char current = s.charAt(end);
+            if (characterMap.containsKey(current)) {
+                int index = characterMap.get(current);
+                if (index >= st) {
+                    st = index + 1;
+                }
+            }
+            characterMap.put(current, end);
+            result = Math.max(result, end - st + 1);
+            end++;
+        }
+        return result;
     }
 }
