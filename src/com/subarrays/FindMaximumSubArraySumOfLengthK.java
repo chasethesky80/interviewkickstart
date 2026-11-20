@@ -87,7 +87,7 @@ public class FindMaximumSubArraySumOfLengthK {
         }
         maxSum = sum;
         while (end < arr.length) {
-            sum = sum + arr[end] - arr[i];
+            sum = sum - arr[i] + arr[end];
             maxSum = Math.max(maxSum, sum);
             i++;
             end++;

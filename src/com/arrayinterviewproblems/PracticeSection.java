@@ -2,7 +2,6 @@ package com.arrayinterviewproblems;
 
 import com.util.ArrayUtils;
 
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -63,6 +62,7 @@ public class PracticeSection {
         System.out.println("IS PALINDROME "+ isPalindrome("MALAYALAM"));
         System.out.println("IS PALINDROME "+ isPalindrome("FEDERATION"));
         System.out.println("SUM OF DIGITS OF NUMBER "+ sumDigits(42689));
+        System.out.println("THREE NUMBER SUM "+threeNumberSum(new int[]{ -8, -6, 1, 2, 3, 5, 6, 12 }, 0));
     }
 
 
@@ -474,4 +474,27 @@ public class PracticeSection {
        }
        return N % 10 + sumDigits(N/10);
    }
+
+    private static List<Integer[]> threeNumberSum(int[] array, int targetSum) {
+        Arrays.sort(array);
+        final List<Integer[]> result = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            int current = array[i];
+            int j = i+1, k = array.length-1;
+            while (j <= k) {
+                int difference = targetSum - current;
+                int currentSum = array[j] + array[k];
+                if (currentSum == difference) {
+                    result.add(new Integer[]{ current, array[j], array[k] });
+                    j++;
+                    k--;
+                } else if (currentSum > difference) {
+                    k--;
+                } else {
+                    j++;
+                }
+            }
+        }
+        return result ;
+    }
 }
