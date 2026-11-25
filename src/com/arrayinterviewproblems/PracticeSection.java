@@ -66,7 +66,8 @@ public class PracticeSection {
         System.out.println("LONGEST SUBSTRING WITH NON REPEATING CHARACTERS "+ longestSubstringWithNonRepeatingCharacters(
                "aebcabgeb@#gbkdb#"
         ));
-
+       System.out.println("LARGEST AND SECOND LARGEST VALUES ");
+       findLargestAndSecondLargest(new int[]{ 8, 8, 7, 6, 5 });
     }
 
 
@@ -518,5 +519,18 @@ public class PracticeSection {
             end++;
         }
         return result;
+    }
+
+    private static void findLargestAndSecondLargest(int[] arr) {
+       int largest = Integer.MIN_VALUE, secondLargest = Integer.MIN_VALUE;
+       for (Integer current: arr) {
+           if (current > largest) {
+               secondLargest = largest;
+               largest = current;
+           } else if (current > secondLargest && current < largest) {
+               secondLargest = current;
+           }
+       }
+       System.out.println("LARGEST AND SECOND LARGEST IS "+ secondLargest +" "+largest);
     }
 }
